@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Joke Generator Game</title>
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500&family=Quicksand:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Quicksand', sans-serif;
+      background: linear-gradient(135deg, #FFDEE9, #B5FFFC);
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      align-items: center;
+      padding-top: 30px;
+    }
+
+    nav {
+      margin-bottom: 15px;
+    }
+
+    nav a {
+      text-decoration: none;
+      font-weight: bold;
+      color: #333;
+      background-color: #ffffffcc;
+      padding: 10px 20px;
+      border-radius: 10px;
+      margin: 0 10px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      transition: background-color 0.3s ease;
+    }
+
+    nav a:hover {
+      background-color: #e0f7fa;
+    }
+
+    h1 {
+      font-family: 'Fredoka', sans-serif;
+      font-size: 3em;
+      color: #333;
+      margin-bottom: 30px;
+      text-shadow: 2px 2px #fff;
+    }
+
+    .container {
+      background-color: white;
+      padding: 40px;
+      border-radius: 20px;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+      max-width: 800px;
+      width: 90%;
+      text-align: center;
+    }
+
+    .joke {
+      font-family: 'Fredoka', sans-serif;
+      font-size: 1.8em;
+      color: #333;
+      margin-bottom: 30px;
+      line-height: 1.5;
+      min-height: 120px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .prompt {
+      font-weight: 600;
+      font-size: 1.2em;
+      margin-bottom: 15px;
+      color: #555;
+    }
+
+    .buttons {
+      display: flex;
+      gap: 20px;
+      justify-content: center;
+      margin-bottom: 20px;
+    }
+
+    button {
+      padding: 15px 25px;
+      font-size: 1.2em;
+      border: none;
+      border-radius: 12px;
+      cursor: pointer;
+      background-color: #f0f0f0;
+      transition: all 0.2s ease;
+    }
+
+    button:hover {
+      background-color: #e0e0e0;
+      transform: scale(1.05);
+    }
+
+    #anotherJokePrompt {
+      margin-top: 20px;
+      font-size: 1.1em;
+    }
+
+    #anotherJokePrompt button {
+      background-color: #b3e5fc;
+    }
+
+    #anotherJokePrompt button:hover {
+      background-color: #81d4fa;
+    }
+  </style>
+</head>
+<body>
+  <!-- Navigation Header -->
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="scratch.html">Scratch Page</a>
+  </nav>
+
+  <!-- Main Title -->
+  <h1>Joke Generator 🤡</h1>
+
+  <!-- Joke Game Container -->
+  <div class="container">
+    <div class="joke" id="jokeDisplay">Click a button to start the joke!</div>
+    <div id="voteSection">
+      <div class="prompt">Was this joke funny?</div>
+      <div class="buttons" id="voteButtons">
+        <button onclick="vote(true)">😂 Yes</button>
+        <button onclick="vote(false)">🙄 No</button>
+      </div>
+    </div>
+    <div id="anotherJokePrompt" style="display:none;">
+      <p>Would you like to hear another joke?</p>
+      <button onclick="showJoke()">Yes, please! 🤩</button>
+    </div>
+  </div>
+
+  <script>
+    const jokes = [
+      "Why don't skeletons fight each other? They don't have the guts.",
+      "What do you call fake spaghetti? An impasta!",
+      "Why did the scarecrow win an award? Because he was outstanding in his field!",
+      "I told my wife she was drawing her eyebrows too high. She looked surprised.",
+      "Why don’t scientists trust atoms? Because they make up everything!",
+      "What do you get when you cross a snowman with a vampire? Frostbite.",
+      "I used to play piano by ear, but now I use my hands.",
+      "Why did the bicycle fall over? Because it was two-tired!",
+      "What’s orange and sounds like a parrot? A carrot.",
+      "Why can't your nose be 12 inches long? Because then it would be a foot.",
+    ];
+
+    const jokeDisplay = document.getElementById("jokeDisplay");
+    const voteButtons = document.getElementById("voteButtons");
+    const anotherJokePrompt = document.getElementById("anotherJokePrompt");
+
+    function getRandomJoke() {
+      const index = Math.floor(Math.random() * jokes.length);
+      return jokes[index];
+    }
+
+    function showJoke() {
+      jokeDisplay.textContent = getRandomJoke();
+      voteButtons.style.display = "flex";
+      anotherJokePrompt.style.display = "none";
+    }
+
+    function vote(isFunny) {
+      if (isFunny) {
+        voteButtons.style.display = "none";
+        anotherJokePrompt.style.display = "block";
+      } else {
+        showJoke();
+      }
+    }
+
+    // Show initial joke
+    showJoke();
+  </script>
+</body>
+</html>

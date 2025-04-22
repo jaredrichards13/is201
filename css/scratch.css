@@ -1,0 +1,69 @@
+p{
+    font-weight: bold; 
+    font-size: 40px; 
+    color:#0047ba;
+  }
+  
+  #top{
+      text-decoration: underline;
+  }
+
+  .emphasizedText{
+        font-style: oblique;
+        font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+        color:#0047ba;
+        font-size: 75px;
+        font-weight: bold;
+  }
+  
+.header{ 
+    font-style: inherit;
+    font-family:'Times New Roman', Times, serif;
+    color:#0047ba;
+    font-size: 50px;
+    font-weight: 200;
+    text-decoration: underline;
+  }
+
+  body{
+      background-color: rgb(202, 202, 202);
+      font-family:'Times New Roman', Times, serif;
+      text-align: center;
+      margin: 20px;
+      border: 5px solid black;
+      margin: 30px;
+  }
+
+  .athletes{
+    margin: 40px auto;
+    padding: 20px;
+    max-width: 700px;
+    background-color: rgb(202, 202, 202);
+    border-radius: 12px;
+  }
+  
+  .centered-list{
+      text-align: center;
+      padding-left: 0;
+      list-style-position: inside;
+  }
+
+  .video-container {
+    position: relative;
+    padding-bottom: 56.25%; /* 16:9 aspect ratio */
+    height: 0;
+    overflow: hidden;
+    max-width: 100%;
+  }
+  
+  .video-container iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
